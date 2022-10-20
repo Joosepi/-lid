@@ -1,10 +1,11 @@
-arv_tekstina = input('Palun sisesta mingi arv: ')
-arv = float(arv_tekstina)
+a = int(input ("Esimene number : "))
+b = int(input ("Teine number: "))
 
-if arv < 0:
-
-    vastus = -arv
-else:
-    vastus = arv
-
-print('Selle arvu on ' + str(vastus))
+def minimum(a, b):
+      
+    if a <= b:
+        return a
+    else:
+        return b
+      
+print(minimum(a, b))
