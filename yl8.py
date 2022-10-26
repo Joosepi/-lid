@@ -1,7 +1,8 @@
-a=int(input("Arvutus: "))
+year=int(input('Arvutus: '))
 
-if (a%400 == 0) or (a%4==0 and a%100!=0):
-
-    print("liigaasta")
-
-    print("lihtaasta")
+if year % 400 == 0:
+    print(year, 'on liigaasta')
+elif year % 4 == 0 and year % 100 != 0:
+    print(year,'on liigaasta')
+else:
+    print(year, 'on lihtaasta')
