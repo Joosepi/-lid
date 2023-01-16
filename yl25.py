@@ -2,7 +2,7 @@ päevik = {
 "eesnimi": "Martin Joosep",
 "perenimi": "Reiljan",
 "sünniaasta": "2005",
-"Asukoht": "Kuresaare",
+"Asukoht": "Kureaare",
 "lemmik magustoit": "Hesburger"
 }
 
