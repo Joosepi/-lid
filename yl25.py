@@ -2,12 +2,12 @@ päevik = {
 "eesnimi": "Martin Joosep",
 "perenimi": "Reiljan",
 "sünniaasta": "2005",
-"elukoht": "Albu",
-"lemmik magustoit": "Im the biggest bird"
+"Asukoht": "Kuresaare",
+"lemmik magustoit": "Hesburger"
 }
 
-print(päevik.get("elukoht"))
-print(päevik["elukoht"])
+print(päevik.get("Asukoht"))
+print(päevik["Asukoht"])
 
 päevik.update({"lemmik magustoit": "melon" })
 
