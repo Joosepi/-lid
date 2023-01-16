@@ -9,7 +9,7 @@ päevik = {
 print(päevik.get("elukoht"))
 print(päevik["elukoht"])
 
-päevik.update({"lemmik magustoit": "watermelon" })
+päevik.update({"lemmik magustoit": "melon" })
 
 print(päevik.keys())
 
