@@ -1,15 +1,15 @@
 import time
 import random
 
-nimi = input("Tere, mis su nimi on? ")
+Name = input("Tere, mis su nimi on? ")
 
 time.sleep(1)
-print("Tere " + nimi)
+print("Tere " + Name)
 
-täna = input("Kuidas sul täna läinud on? ")
+täna = input("Kuidas sul läinud on? ")
 if "hästi" in täna:
-    print("Tore sama siin! ")
+    print("Tore! ")
 elif "normilt" in täna: 
-    print("See polegi nii hull")
+    print("See pole siis nii halb")
 else:
-    input("Oi mis juhtus? ")
+    input("Kui on hästi miks nii aga kui sul on halb miks siis ka nii? ")

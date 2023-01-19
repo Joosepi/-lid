@@ -1,7 +1,7 @@
 import praw
 import matplotlib.pyplot as plt
 
-#top secret data 
+ 
 reddit = praw.Reddit(client_id='id', \
                      client_secret='secret', \
                      user_agent='Scraper', \
@@ -10,9 +10,9 @@ reddit = praw.Reddit(client_id='id', \
 
 subredditname = "politics"
 
-subreddit = reddit.subreddit(subredditname)
+sub = reddit.sub(subredditname)
 
-top_subbreddit = subreddit.top()
+top_sub = sub.top()
 count = 0
 max = 10000
 print('success')
@@ -69,11 +69,11 @@ for entry in sortedList:
 
 labels = keyWords
 sizes = keyCount
-# explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
+
 
 plt.title('Top comments for: r/' + subredditname)
 plt.pie(sizes, labels=labels, autopct='%1.1f%%',
         shadow=True, startangle=90)
-plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+plt.axis('equal') 
 
 plt.show()

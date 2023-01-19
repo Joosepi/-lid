@@ -1,29 +1,29 @@
-päevik = {
-"eesnimi": "Martin Joosep",
-"perenimi": "Reiljan",
-"sünniaasta": "2005",
-"Asukoht": "Kureaare",
-"lemmik magustoit": "Hesburger"
+diary = {
+"Name": "Martin Joosep",
+"Lastname": "Reiljan",
+"Birth": "2005",
+"Location": "Kureaare",
+"Favourite dessert": "Hesburger"
 }
 
-print(päevik.get("Asukoht"))
-print(päevik["Asukoht"])
+print(diary.get("Location"))
+print(diary["Location"])
 
-päevik.update({"lemmik magustoit": "melon" })
+diary.update({"Favourite dessert": "melon" })
 
-print(päevik.keys())
+print(diary.keys())
 
-print(päevik.values())
+print(diary.values())
 
-if 'isikukood' in päevik :
-    print("On isikukood")
+if 'Social Security Number' in diary :
+    print("Has Social Security Number")
 else:
-    print("Pole isikukoodi")
+    print("Doenst have Social Security Number")
 
-print(len(päevik))
+print(len(diary))
 
-päevik.update({"pikkus": len(päevik)})
+diary.update({"Tallness": len(diary)})
 
-päevik.pop("sünniaasta")
+diary.pop("Birth")
 
-del päevik
+del diary
