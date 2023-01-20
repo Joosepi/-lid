@@ -15,24 +15,24 @@ dictionary['dessert'] = 'Burger' #Defines the burger as a dessert.
 for k, v in dictionary.items():
     print(k, v)
 
-x = dictionary.get("dessert")
+x = dictionary.get("dessert") #Gets my Dessert value from the Dictionary.
 print(x)
 
 keys = dictionary.keys()
 print(keys)
 
-keyToFind = 'ID' 
+keyToFind = 'ID' #Finds my ID
 
 if dictionary.get('ID') == None:
-  print('ID Hasnt been found in this dictionary')
+  print('ID Hasnt been found in this dictionary') #Doesn't find it.
 else:
-  print('ID Has been found in this dictionary')
+  print('ID Has been found in this dictionary') #Does find it.
 
-print("Dictionary size: ", len(dictionary), "elements")
+print("Dictionary size: ", len(dictionary), "elements") #Print's the size of the Dictionary.
 
 print(len(dictionary))
 
-dictionary["height"] = "My height: 185cm"
+dictionary["height"] = "My height: 185cm" #This is my height
 #print(dictionary)
 
 print(dictionary.get("height")) #Prints the height.
