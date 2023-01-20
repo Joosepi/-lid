@@ -8,11 +8,11 @@ guessList.append(give_number)
 täring = random.randint(1,6)
 while give_number != täring:
     if give_number > täring:
-        give_number = int(input("Vabandust, see vastus on liiga suur! Proovi uuesti!\n "))
+        give_number = int(input("Vabandust, see vastus on liiga suur! Tee uuesti!\n "))
         if give_number not in guessList:
             guessList.append(give_number)
     if give_number < täring:
-        give_number = int(input("Vabandust, see vastus on liiga väike! Proovi uuesit!\n "))
+        give_number = int(input("Vabandust, see vastus on liiga väike! Tee uuesit!\n "))
         if give_number not in guessList:
             guessList.append(give_number)
 

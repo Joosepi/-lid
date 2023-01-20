@@ -1,4 +1,5 @@
 import random
+
 user_action = input("Sisesta oma valik (kivi, paber, käärid): ")
 possible_actions = ["kivi", "paber", "käärid"]
 computer_action = random.choice(possible_actions)

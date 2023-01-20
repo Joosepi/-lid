@@ -2,9 +2,9 @@ name = input("Mis su nimi on?: ")
 
 print("Hommik",name,)
 
-elukoht = input("Kus sa viibid?: ")
+Location = input("Kus sa viibid?: ")
 
-if elukoht == "Saaremaa":
+if Location == "Saaremaa":
     print("Väga normaalne ju")
 
 age = int(input("Kui vana sa oled?: "))

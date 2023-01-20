@@ -1,5 +1,5 @@
-raadius = float(input("sisesta raadius: "))
+radius = float(input("sisesta raadius: "))
 
-pindala = 3.14 * raadius * raadius
+area = 3.14 * radius * radius
 
-print("Ringi pindala on:", pindala)
+print("Ringi pindala on:", area)

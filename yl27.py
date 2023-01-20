@@ -1,7 +1,6 @@
-import praw
 import matplotlib.pyplot as plt
+import praw
 
- 
 reddit = praw.Reddit(client_id='id', \
                      client_secret='secret', \
                      user_agent='Scraper', \

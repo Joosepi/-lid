@@ -1,8 +1,8 @@
-lemmikloomad = input("Mis on su lemmikloom?: ")
-print("Lemmiklooma esimene täht: ",lemmikloomad[0])
+favoriteanimal = input("Mis on su lemmikloom?: ")
+print("Lemmiklooma esimene täht: ",favoriteanimal[0])
 
-loomad = ["Koer", "Tiiger"]
-loomad.append(lemmikloomad)
-print(loomad)
+animal = ["Koer", "Tiiger"]
+animal.append(favoriteanimal)
+print(animal)
 
-print(loomad[-1][-1])
+print(animal[-1][-1])

@@ -3,7 +3,7 @@ diary = {
 "Lastname": "Reiljan",
 "Birth": "2005",
 "Location": "Kureaare",
-"Favourite dessert": "Hesburger"
+"Favourite dessert": "burger"
 }
 
 print(diary.get("Location"))

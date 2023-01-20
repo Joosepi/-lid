@@ -1,25 +1,25 @@
-puuviljad = ["Õun", "Banana","Watermelon"]
+fruits = ["Õun", "Banana","Watermelon"]
 
-print(puuviljad)
+print(fruits)
 
-print("Esimesed puuviljad:", puuviljad[0])
+print("Esimesed puuviljad:", fruits[0])
 
-puuviljad.append("Mango")
-print("Viimane puuvilid:", puuviljad[len(puuviljad)-1])
+fruits.append("Mango")
+print("Viimane puuvilid:", fruits[len(fruits)-1])
 
-puuviljad[1] = "Apelsin"
-print(puuviljad)
+fruits[1] = "Apelsin"
+print(fruits)
 
-if "Õun" in puuviljad:
-    print("Õun on olemas.")
+if "Õun" in fruits:
+    print("Õun on.")
 else:
-    print("Õun pole olemas.")
+    print("Õun pole.")
 
-print("Listides on:", len(puuviljad),)
+print("Listides on:", len(fruits),)
 
-puuviljad.remove("Watermelon")
-print(puuviljad)
+fruits.remove("Watermelon")
+print(fruits)
 
-puuviljad.reverse()
-puuviljad.sort()
-print(puuviljad)
+fruits.reverse()
+fruits.sort()
+print(fruits)

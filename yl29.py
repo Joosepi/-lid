@@ -1,5 +1,5 @@
-import time
 import random
+import time
 
 Name = input("Tere, mis su nimi on? ")
 
