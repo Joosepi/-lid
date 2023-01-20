@@ -30,5 +30,19 @@ else:
 
 print("Dictionary size: ", len(dictionary), "elements")
 
+print(len(dictionary))
+
+dictionary = {
+  "name": "Martin Joosep",
+  "lastname": "Reiljan",
+  "age": 17,
+  "birth_year": 2005,
+  "residence": "Kuressaare",
+  "dessert": "Burger"
+}
+
+print(dictionary.get("height"))
+
+
 del dictionary['birth_year']
 print(dictionary)
