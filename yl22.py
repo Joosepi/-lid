@@ -6,8 +6,8 @@ computer_action = random.choice(possible_actions)
 if user_action == computer_action:
     print(f"Mõlemad valisid {user_action}. viik!")
 elif user_action == "Kivi":
-    if computer_action == "scissors":
-        print("Kivi smashes scissors! Sa võitsid!")
+    if computer_action == "Käärid":
+        print("Kivi smashes Käärid! Sa võitsid!")
     else:
         print("Paber peitab kivi! Sa kaotasid.")
 elif user_action == "paber":
@@ -15,7 +15,7 @@ elif user_action == "paber":
         print("Paber peitab Kivi! Sa võitsid!")
     else:
         print("Käärid lõikab paber! Sa kaotasid.")
-elif user_action == "käärid":
+elif user_action == "Käärid":
     if computer_action == "paber":
         print("Käärid lõikab paper! Sa võitsid!")
     else:

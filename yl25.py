@@ -1,29 +1,34 @@
-diary = {
-"Name": "Martin Joosep",
-"Lastname": "Reiljan",
-"Birth": "2005",
-"Location": "Kureaare",
-"Favourite dessert": "burger"
+dictionary = {
+  "name": "Martin Joosep",
+  "lastname": "Reiljan",
+  "age": 17,
+  "birth_year": 2005,
+  "residence": "Kuressaare",
+  "dessert": "Burger"
 }
 
-print(diary.get("Location"))
-print(diary["Location"])
+print(dictionary.get('residence'))
+print(dictionary['residence'])
 
-diary.update({"Favourite dessert": "melon" })
+dictionary['dessert'] = 'Burger'
 
-print(diary.keys())
+for k, v in dictionary.items():
+    print(k, v)
 
-print(diary.values())
+x = dictionary.get("dessert")
+print(x)
 
-if 'Social Security Number' in diary :
-    print("Has Social Security Number")
+keys = dictionary.keys()
+print(keys)
+
+keyToFind = 'ID'
+
+if dictionary.get('ID') == None:
+  print('ID Hasnt been found in this dictionary')
 else:
-    print("Doenst have Social Security Number")
+  print('ID Has been found in this dictionary')
 
-print(len(diary))
+print("Dictionary size: ", len(dictionary), "elements")
 
-diary.update({"Tallness": len(diary)})
-
-diary.pop("Birth")
-
-del diary
+del dictionary['birth_year']
+print(dictionary)
