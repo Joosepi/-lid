@@ -32,7 +32,7 @@ print("Dictionary size: ", len(dictionary), "elements")
 
 print(len(dictionary))
 
-dictionary["height"] = "185cm"
+dictionary["height"] = "My height: 185cm"
 #print(dictionary)
 
 print(dictionary.get("height")) #Prints the height.
