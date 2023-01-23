@@ -88,6 +88,7 @@ for employee_name, employee_sales in sales.items():
     print('\v')
 
     for drink_name, drink_value in employee_sales['revenue'].items():
-        print(drink_name, drink_value - employee_sales['expenses'][drink_name])
-        if abs(drink_value) :
-            print('Kasum on pos')
+        profit = drink_value - employee_sales['expenses'][drink_name]
+        print(drink_name, profit)
+        if profit > 0 :
+            print('Kasum on pos', profit * 0.062)
