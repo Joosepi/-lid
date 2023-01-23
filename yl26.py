@@ -1,31 +1,84 @@
-def sales(data):
-    lines = [line.strip().split() for line in data.split("\n") if line]
+sales = {
+    "Johnver": {
+        "expenses": {
+            "tea": 190,
+            "coffe": 325,
+            "water": 682,
+            "milk": 829
 
-    # Take each row of sales data
-    # and transpose it into columns of
-    # sales data for each person
-    _, *revenue = zip(*lines[2:len(lines)//2])
-    _, *expenses = zip(*lines[2+len(lines)//2:])
-    
-    # Calculate commissions and
-    # remove negative values
-    commission = [sum(max(0, int(r)-int(e))*.062 for r, e in zip(*data)) for data in zip(revenue, expenses)]
+        },
+        "revenue": {
+            "tea": 120,
+            "coffe": 300,
+            "water": 50,
+            "milk": 67
 
-    print(f"           {' '.join(lines[1])}")
-    print(f"Commission {' '.join([f'{value//1:>{len(name)}.0f}' for value, name in zip(commission, lines[1])])}")
+        }
+    },
+    "Vanston": {
+        "expenses": {
+            "tea": 190,
+            "coffe": 325,
+            "water": 682,
+            "milk": 829
 
-sales('''Revenue
+        },
+        "revenue": {
+             "tea": 140,
+            "coffe": 19,
+            "water": 14,
+            "milk": 140
 
-            Johnver Vanston Danbree Vansey  Mundyke
-Tea             190     140    1926     14      143
-Coffee          325      19     293   1491      162
-Water           682      14     852     56      659
-Milk            829     140     609    120       87
+        }
+    },
+     "Danbree": {
+        "expenses": {
+            "tea": 890,
+            "coffe": 23,
+            "water": 1290,
+            "milk": 89
 
-Expenses
+        },
+        "revenue": {
+             "tea": 1926,
+            "coffe": 293,
+            "water": 852,
+            "milk": 609
 
-            Johnver Vanston Danbree Vansey  Mundyke
-Tea             120      65     890     54      430
-Coffee          300      10      23    802      235
-Water            50     299    1290     12      145
-Milk             67     254      89    129       76''')
+        }
+    },
+     "Vansey": {
+        "expenses": {
+            "tea": 54,
+            "coffe": 802,
+            "water": 12,
+            "milk": 129
+
+        },
+        "revenue": {
+             "tea": 14,
+            "coffe": 1491,
+            "water": 56,
+            "milk": 120
+        }
+    },
+     "Mundyke": {
+        "expenses": {
+            "tea": 430,
+            "coffe": 235,
+            "water": 145,
+            "milk": 76
+
+        },
+        "revenue": {
+             "tea": 143,
+            "coffe": 162,
+            "water": 659,
+            "milk": 87
+
+        }
+    }
+}
+for k, v in sales.items():
+    print(k)
+    print(v)
