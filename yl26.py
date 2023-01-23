@@ -1,28 +1,31 @@
-import pandas as pd
+def sales(data):
+    lines = [line.strip().split() for line in data.split("\n") if line]
 
-revenue = pd.DataFrame({
-    'Chase': [190,325,682,829],
-    'Babylee': [140,19,14,140],
-    'Daniel': [1926,293,852,609],
-    'Valerina': [14,1491,56,120],
-    'Monkey': [143,162,659,87]
-})
+    # Take each row of sales data
+    # and transpose it into columns of
+    # sales data for each person
+    _, *revenue = zip(*lines[2:len(lines)//2])
+    _, *expenses = zip(*lines[2+len(lines)//2:])
+    
+    # Calculate commissions and
+    # remove negative values
+    commission = [sum(max(0, int(r)-int(e))*.062 for r, e in zip(*data)) for data in zip(revenue, expenses)]
 
-expenses = pd.DataFrame({
-    'Chase': [120,300,50,67],
-    'Babylee': [65,10,299,254],
-    'Daniel': [890,23,1290,89],
-    'Valerina': [54,802,12,129],
-    'Monkey': [430,235,145,76]
-})
+    print(f"           {' '.join(lines[1])}")
+    print(f"Commission {' '.join([f'{value//1:>{len(name)}.0f}' for value, name in zip(commission, lines[1])])}")
 
-total_revenue = revenue.subtract(expenses)
+sales('''Revenue
 
-total_revenue[total_revenue < 0] = 0
+            Johnver Vanston Danbree Vansey  Mundyke
+Tea             190     140    1926     14      143
+Coffee          325      19     293   1491      162
+Water           682      14     852     56      659
+Milk            829     140     609    120       87
 
-commission = pd.DataFrame(columns=['Chase', 'Babylee', 'Daniel', 'Valerina', 'Monkey'])
+Expenses
 
-for col in total_revenue:
-    commission.loc["Commission", col] = round(sum(total_revenue[col] * .062))
-
-print(commission)
+            Johnver Vanston Danbree Vansey  Mundyke
+Tea             120      65     890     54      430
+Coffee          300      10      23    802      235
+Water            50     299    1290     12      145
+Milk             67     254      89    129       76''')
