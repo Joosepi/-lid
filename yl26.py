@@ -79,7 +79,12 @@ sales = {
         }
     }
 }
-for k, v in sales.items():
-    print(k)
-    print(v['revenue'])
-    print(v['expenses'])
+
+for employee_name, employee_sales in sales.items():
+    print(employee_name)
+    print(employee_sales['revenue'])
+    print(employee_sales['expenses'])
+
+    for drink_name, drink_value in employee_sales['revenue'].items():
+        print(drink_name, drink_value, employee_sales['expenses'][drink_name])
+    
