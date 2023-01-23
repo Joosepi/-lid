@@ -81,4 +81,5 @@ sales = {
 }
 for k, v in sales.items():
     print(k)
-    print(v)
+    print(v['revenue'])
+    print(v['expenses'])
