@@ -1,5 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.feature_extraction.text import CountVectorizer
 
 url = 'https://www.imdb.com/chart/top'
 response = requests.get(url)
@@ -13,8 +15,7 @@ for td in soup.find_all('td', class_='titleColumn'):
     rating = td.find('strong').get_text()
     movies.append({'title': title, 'year': year, 'rating': rating})
 
-from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.feature_extraction.text import CountVectorizer
+
 
 # convert the rating strings to floats
 for movie in movies:
