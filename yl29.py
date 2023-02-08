@@ -1,15 +1,23 @@
-import random
 import time
+import random
 
-Name = input("Tere, mis su nimi on? ")
+name = input("Tere, mis on sinu nimi? ")
 
-time.sleep(1)
-print("Tere " + Name)
+time.sleep(2)
+print("Tere " + name)
 
-täna = input("Kuidas sul läinud on? ")
-if "hästi" in täna:
-    print("Tore! ")
-elif "normilt" in täna: 
-    print("See pole siis nii halb")
+feeling = input("Kuidas on sul? ")
+
+time.sleep(2)
+if "good" in feeling:
+    print("Ma tunnen ennast hästi!")
 else:
-    input("Kui on hästi miks nii aga kui sul on halb miks siis ka nii? ")
+    print("Mul on kahju sellest kuulda")
+
+time.sleep(2)
+favcolour = input("Mis on sinu lemmikvärv? ")
+
+colours = ["Punane","Roheline","Sinine"]
+
+time.sleep(2)
+print("Minu lemmikvärv on " + random.choice(colours))
