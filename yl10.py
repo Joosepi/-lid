@@ -1,17 +1,14 @@
-name = input("Mis su nimi on?: ")
+name = input("Mis on sinu nimi? ")
+print("Tere, " + name + "!")
 
-print("Hommik",name,)
+location = input("Kus sa elad? ")
+if location == "Saaremaa":
+    print("Saaremaa on ilus saar!")
 
-Location = input("Kus sa viibid?: ")
-
-if Location == "Saaremaa":
-    print("Väga normaalne ju")
-
-age = int(input("Kui vana sa oled?: "))
-
+age = int(input("Kui vana sa oled? "))
 if age < 18:
-    print("Väga noor, et autot juhtida.")
+    print("Sa oled liiga noor, et sõita.")
 elif age == 18:
-    print("Palju õnne Täisealiseks saamiseks.")
-elif age > 18:
-    print("Võid autotjuhtida.")
+    print("Õnnitleme teid täiskasvanuks saamise puhul!")
+else:
+    print("Saate sõita.")

@@ -1,3 +1,6 @@
-fail = input("Mis on su failinimi?:")
+filename = input("Enter a filename in the format 'filename.ext': ")
 
-print("Su faililaiend on:", fail.split(".")[0])
+filename_split = filename.split(".")
+extension = filename_split[-1]
+
+print("The extension is:", extension)

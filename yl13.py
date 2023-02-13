@@ -1,8 +1,11 @@
-favoriteanimal = input("Mis on su lemmikloom?: ")
-print("Lemmiklooma esimene täht: ",favoriteanimal[0])
+favorite_animal = input("What is your favorite animal? ")
 
-animal = ["Koer", "Tiiger"]
-animal.append(favoriteanimal)
+first_letter = favorite_animal[0]
+print("The first letter of your favorite animal is:", first_letter)
 
+animal_list = ["dog", "cat", "bird"]
+animal_list.append(favorite_animal)
+print("The list of animals:", animal_list)
 
-print(animal[-1][-1])
+last_letter_of_last_element = animal_list[-1][-1]
+print("The last letter of the last element in the list is:", last_letter_of_last_element)
