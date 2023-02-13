@@ -1,94 +1,87 @@
-import random as rd
+import random
 
-cards = {'1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8',
-         '9': '9', '10': 'X', '11': 'J', '12': 'Q', '13': 'K', '11': 'A'}
-cards_keys = list(cards.keys())
-mängu_status = True
-winner = None
+# Klass kaardi jaoks
+class Card:
+    def __init__(self, suit, rank):
+        self.suit = suit
+        self.rank = rank
 
-def print_card_user(display_cards_arr):
-    total_cards = len(display_cards_arr)
-    for idx in range(total_cards):
-        print('______________', end = '   ')
-    print('\n')
-    for idx in range(total_cards):
-        print('|%s           |' % cards[display_cards_arr[idx]], end = '   ') 
-    print('\n')
-    for idx in range(total_cards):
-        print('|            |', end = '   ')
-    print('\n')
-    for idx in range(total_cards):
-        print('|            |', end = '   ')
-    print('\n')
-    for idx in range(total_cards):
-        print('|           %s|' % cards[display_cards_arr[idx]], end = '   ')
-    print('\n')
-    for idx in range(total_cards):
-        print('--------------', end = '   ')
-    print('\n')
-    
-def win_determine(Persons_card_list, Computer_card_list):
-    global winner
-    Persons_card_list = [int(i) for i in Persons_card_list]
-    Computer_card_list = [int(i) for i in Persons_card_list]
-    if sum(Persons_card_list) == 21:
-        winner = 'Player'
-    if sum(Computer_card_list) == 21:
-        winner = 'Computer'
-    if sum(Persons_card_list) > 21:
-        winner = 'Computer'
-    if sum(Computer_card_list) > 21:
-        winner = 'Player'
-    if sum(Persons_card_list) + sum(Computer_card_list) < 42:
-        if sum(Persons_card_list) > sum(Computer_card_list):
-            winner = 'Player'
-        if sum(Persons_card_list) < sum(Computer_card_list):
-            winner = 'Computer'
-    if sum(Persons_card_list) == sum(Computer_card_list):
-        winner = 'Drew'
+    def __str__(self):
+        return self.rank + ' of ' + self.suit
 
-def reshuffle(Persons_cards, Computer_cards):
-    Persons_cards = [int(i) for i in Persons_cards]
-    Computer_cards = [int(i) for i in Computer_cards]
-    if sum(Persons_cards) > 21:
-        play()
-    if sum(Computer_cards) > 21:
-        play()
-    if sum(Persons_cards) == 21:
-        print('Player Wins - Blackjack')
-    if sum(Computer_cards) == 21:
-        print('Arvuti Wins - Blackjack')
+# Klass kaardipaki jaoks
+class Deck:
+    def __init__(self):
+        self.deck = []
+        suits = ['Hearts', 'Diamonds', 'Spades', 'Clubs']
+        ranks = ['Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace']
+        for suit in suits:
+            for rank in ranks:
+                self.deck.append(Card(suit, rank))
 
-def computer_move(Computer_cards):
-    cards = [int(i) for i in Computer_cards]
-    if 21 - sum(cards) <= 4:
-        print('\nComputer Chose to Stand')
-    else:
-        Computer_cards.append(cards_keys[rd.randint(0, 12)])
+    def shuffle(self):
+        random.shuffle(self.deck)
 
-def play():
-    global mängu_status, winner
-    Persons_cards = []
-    Computer_cards = []
-    for _ in range(2):
-        Persons_cards.append(cards_keys[rd.randint(0, 12)])
-        Computer_cards.append(cards_keys[rd.randint(0, 12)])
-    reshuffle(Persons_cards, Computer_cards)
-    print("Player Current Cards:\n")
-    print_card_user(Persons_cards)
-    while mängu_status == True:
-        if winner == None:
-            computer_move(Computer_cards)
-            computer_chooses = input("""Hit or Stand?""")
-            if computer_chooses.lower() == 'hit':
-                Persons_cards.append(cards_keys[rd.randint(0, 12)])
-                print(Persons_cards)
-                print_card_user(Persons_cards)
-            if computer_chooses.lower() == 'stand':
-                win_determine(Persons_cards, Computer_cards)
-                print("\nThe Winner is: %s" % winner)
-                print("Arvuti kaartid:")
-                print_card_user(Computer_cards)
-                print(sum([int(i) for i in Persons_cards]), '-', sum([int(i) for i in Computer_cards]))
-                quit()
-play()
+    def deal(self):
+        return self.deck.pop()
+
+# Klass mängija jaoks
+class Hand:
+    def __init__(self):
+        self.cards = []
+        self.value = 0
+        self.aces = 0
+
+    def add_card(self, card):
+        self.cards.append(card)
+        self.value += values[card.rank]
+        if card.rank == 'Ace':
+            self.aces += 1
+
+    def adjust_for_ace(self):
+        while self.value > 21 and self.aces:
+            self.value -= 10
+            self.aces -= 1
+
+# Kaartide väärtused
+values = {'Two': 2, 'Three': 3, 'Four': 4, 'Five': 5, 'Six': 6, 'Seven': 7, 'Eight': 8, 'Nine': 9, 'Ten': 10, 'Jack': 10,
+          'Queen': 10, 'King': 10, 'Ace': 11}
+
+# Klass mängija jaoks
+class Player:
+    def __init__(self, name):
+        self.name = name
+        self.hand = Hand()
+
+    def hit(self, deck):
+        self.hand.add_card(deck.deal())
+
+    def stay(self):
+        pass
+
+# Klass diileri jaoks
+class Dealer:
+    def __init__(self):
+        self.hand = Hand()
+
+    def hit(self, deck):
+        self.hand.add_card(deck.deal())
+
+    def stay(self):
+        pass
+
+# Mängu funktsioon
+def play_game():
+    deck = Deck()
+    deck.shuffle()
+    player = Player("Player1")
+    dealer = Dealer()
+    player.hit(deck)
+    player.hit(deck)
+    dealer.hit(deck)
+    dealer.hit(deck)
+    print("Player's hand: ", *player.hand.cards, sep='\n')
+    print("Dealer's hand: ", dealer.hand.cards[0], "and unknown card")
+    while player.hand.value < 21:
+        choice = input("Do you want to hit or stay? ")
+        if choice == 'hit':
