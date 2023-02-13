@@ -1,11 +1,19 @@
-favorite_animal = input("What is your favorite animal? ")
+# Küsime kasutajalt tema lemmiklooma
+favorite_animal = input("Mis on sinu lemmikloom? ")
 
+# Leiame esimese tähe
 first_letter = favorite_animal[0]
-print("The first letter of your favorite animal is:", first_letter)
+# Väljastame esimese tähe
+print("Sinu lemmiklooma esimene täht on:", first_letter)
 
-animal_list = ["dog", "cat", "bird"]
+# Loome loomade nimekirja
+animal_list = ["koer", "kass", "lind"]
+# Lisa lemmikloom nimekirja
 animal_list.append(favorite_animal)
-print("The list of animals:", animal_list)
+# Väljastame nimekirja
+print("Loomade nimekiri:", animal_list)
 
+# Leiame viimase elementi viimase tähe
 last_letter_of_last_element = animal_list[-1][-1]
-print("The last letter of the last element in the list is:", last_letter_of_last_element)
+# Väljastame viimase elementi viimase tähe
+print("Viimase elementi viimane täht on:", last_letter_of_last_element)
