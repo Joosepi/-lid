@@ -1,35 +1,31 @@
+# Juhusliku valiku valimiseks importige arvutisse juhuslik teek
 import random
 
-# Küsime kasutajalt valikut (kivi, paber, käärid)
-user_action = input("Sisesta oma valik (kivi, paber, käärid): ")
+# Valikute loend
+options = ["kivi", "paber", "käärid"]
 
-# Määrame võimalikud valikud
-possible_actions = ["kivi", "paber", "käärid"]
+# Funktsioon mängu mängimiseks
+def play_game():
+    # Arvuti teeb juhusliku valiku
+    computer_choice = random.choice(options)
 
-# Arvuti teeb juhusliku valiku
-computer_action = random.choice(possible_actions)
+    # Kasutaja teeb valiku
+    user_choice = input("Valige kivi, paber või käärid: ")
 
-# Kui kasutaja ja arvuti valikud on samad, on see viik
-if user_action == computer_action:
-    print(f"Mõlemad valisid {user_action}. viik!")
-
-# Kui kasutaja valis kivi
-elif user_action == "Kivi":
-    if computer_action == "Käärid":
-        print("Kivi smashes Käärid! Sa võitsid!")
+    # Kontrollige, kes mängu võidab
+    if computer_choice == user_choice:
+        print("Viik!")
+    elif (computer_choice == "kivi" and user_choice == "käärid") or (computer_choice == "paber" and user_choice == "kivi") or (computer_choice == "käärid" and user_choice == "paber"):
+        print("Arvuti võitis!")
     else:
-        print("Paber peitab kivi! Sa kaotasid.")
+        print("Kasutaja võitis!")
 
-# Kui kasutaja valis paber
-elif user_action == "paber":
-    if computer_action == "Kivi":
-        print("Paber peitab Kivi! Sa võitsid!")
-    else:
-        print("Käärid lõikab paber! Sa kaotasid.")
+# Mängutsükkel mitme mängu mängimiseks
+while True:
+    play_game()
+    play_again = input("Kas soovid veel mängida (jah/ei)? ")
+    if play_again.lower() == "ei":
+        break
 
-# Kui kasutaja valis käärid
-elif user_action == "Käärid":
-    if computer_action == "paber":
-        print("Käärid lõikab paper! Sa võitsid!")
-    else:
-        print("Kivi purustab Käärid! Sa kaotasid."):
+# Hüvastijätu sõnum
+print("Lõpetame mängimise, tänan, et mängisite!")
