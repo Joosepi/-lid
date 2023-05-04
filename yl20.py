@@ -1,2 +1,4 @@
 a = int(input("Sisesta number: "))
-input(a*8)
+for n in range(8):
+    
+    print(n,'x',a,'=',a*n)

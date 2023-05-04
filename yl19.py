@@ -3,6 +3,7 @@ import re
 
 # defineerime tähed, mida arvutada
 letters = "a", "e", "i", "o", "u", "õ", "ä", "ö", "ü"
+print(letters)
 
 # küsime kasutajalt sisendit
 a = input("Sisesta midagi: ")

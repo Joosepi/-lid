@@ -3,8 +3,7 @@ a = input("Sisestage number: ")
 
 # Defineerime funktsiooni, mis arvutab antud numberi UPC kontrollkoodi
 def upc(a):
-    # Teisendame sisendnumberi stringiks
-    a = str(a)
+    
     # Alustame loendurit, mida kasutame paari- ja paaritu numbrite eristamiseks
     counter = 0
     # Alustame summa x, millele lisame paari numbrite väärtused
