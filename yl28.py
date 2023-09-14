@@ -1,40 +1,36 @@
-import urllib3
-import sys
-from bs4 import BeautifulSoup
-from tqdm import tqdm
+# Importida ajafunktsioon ja juhuslik valik
+import time
+import random
 
-sys.stdout = open('Tahvel' + '_urllib3.txt', 'w')
-url = "https://www.delfi.ee"
-r = urllib3.PoolManager().request('GET', url).data
-soup = BeautifulSoup(r, "html.parser")
-article = soup.find('div', attrs={'class': 'article-dropzone'})
+# Küsida kasutaja nime
+name = input("Tere, mis on sinu nimi? ")
 
-print(article + ': ')
+# Oodata 2 sekundit
+time.sleep(2)
+# Tervitada kasutajat nimepidi
+print("Tere " + name)
 
-lister_list_contents = soup.find('div', attrs={'class': 'lister-list'})
-i = 1
-movieList = soup.findAll('div', attrs={'class': 'lister-item mode-advanced'})
+# Küsida kasutaja enesetunnet
+feeling = input("Kuidas on sul? ")
 
-for div in tqdm(movieList):
+# Oodata 2 sekundit
+time.sleep(2)
+# Kui kasutaja vastab, et on hästi, siis öelda, et ka ise tunneb ennast hästi
+if "hästi" in feeling:
+    print("Ma tunnen ennast hästi!")
+# Muul juhul öelda, et on kahju sellest kuulda
+else:
+    print("Mul on kahju sellest kuulda")
 
-    print( str(i) + '.',)
+# Oodata 2 sekundit
+time.sleep(2)
+# Küsida kasutaja lemmikvärvi
+favcolour = input("Mis on sinu lemmikvärv? ")
 
-    header = div.findChildren('h3', attrs={'class': 'lister-item-header'})
+# Loetleda valikus värvid
+colours = ["Punane","Roheline","Sinine"]
 
-    for items in header:
-
-        title = header[0].findChildren('a')
-
-        print( 'Movie: ' + str(title[0].contents[0]))
-
-    genre = div.findChildren('span', attrs={'class': 'genre'})
-    genre_text = genre[0].text.encode('utf-8').decode('ascii', 'ignore')
-
-    print( 'Genre: ' + genre_text.strip('\n'))
-
-    p_all = div.findAll('p', attrs={'class': 'text-muted'})
-    desc = p_all[1].text.encode('utf-8').decode('ascii', 'ignore')
-
-    print( 'Description: ' + desc.strip('\n'))
-
-    i += 1
+# Oodata 2 sekundit
+time.sleep(2)
+# Väljastada juhuslik valik lemmikvärvidest
+print("Minu lemmikvärv on " + random.choice(colours))
